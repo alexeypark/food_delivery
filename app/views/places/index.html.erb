@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td>pic</td>
       <th>Name</th>
       <th>Description</th>
       <th>Image</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @places.each do |place| %>
       <tr>
+        <td><%= image_tag place.image.url(:thumb) %></td>
         <td><%= place.name %></td>
         <td><%= place.description %></td>
         <td><%= place.image %></td>

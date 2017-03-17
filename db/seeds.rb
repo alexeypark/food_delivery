@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(email: 'admin@example.com', password: 'password', role: 'admin')
-
+admin = User.create!(email: 'admin@example.com', password: 'password', role: 'admin')
+user = User.create!(email: 'user@example.com', password: 'password', role: 'none')
 Place.create([{name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
               {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
               {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
