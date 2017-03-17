@@ -5,8 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', role: 'admin')
+User.create!(email: 'admin@example.com', password: 'password', role: 'admin')
 
-Place.create([{name: , description: , image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)}])
+Place.create([{name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
+              {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)}
+             ])
+
+80.times do
+  Dish.create(name: Faker::Food.ingredient, description: Faker::Lorem.paragraph(2, false, 4), place_id: rand(1..8))
+end
 
 
