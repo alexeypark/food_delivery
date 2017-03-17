@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dishes
+  resources :places
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}, path_names: { sign_in: 'login', sign_out: 'logout' }
 
   devise_scope :user do
