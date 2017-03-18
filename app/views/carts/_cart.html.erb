@@ -9,3 +9,4 @@
 </table>
 
 <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Order', orders_path(place_id: place) %>
