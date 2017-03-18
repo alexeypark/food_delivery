@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
   has_many :dishes
+  has_many :carts
 
   has_attached_file :image,
                     styles: { medium: "300x300>", thumb: "100x100>" },

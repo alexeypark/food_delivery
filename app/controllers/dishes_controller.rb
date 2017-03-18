@@ -8,10 +8,5 @@ class DishesController < ApplicationController
     @dish = Dish.find(params[:id])
   end
 
-  private
-
-    def dish_params
-      params.require(:dish).permit(:name, :price, :description, :place_id)
-    end
 end
 

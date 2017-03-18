@@ -18,7 +18,7 @@ Place.create([{name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, f
              ])
 
 80.times do
-  Dish.create(name: Faker::Food.ingredient, description: Faker::Lorem.paragraph(2, false, 4), place_id: rand(1..8))
+  Dish.create(name: Faker::Food.ingredient, description: Faker::Lorem.paragraph(2, false, 4), price: rand(1..500), place_id: rand(1..8))
 end
 
 

@@ -15,5 +15,39 @@
   <%= @place.image %>
 </p>
 
+<h1>Dishes</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @place.dishes.each do |dish| %>
+      <tr>
+        <td><%= dish.name %></td>
+        <td><%= dish.price %></td>
+        <td><%= dish.description %></td>
+        <td><%= button_to 'Add to Cart', line_items_path(dish_id: dish) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h2>Your Pragmatic Cart</h2>
+<ul>
+  <% @cart.line_items.each do |item| %>
+      <li><%= item.quantity %> &times; <%= item.dish.name %> -- <%= item.total_price %></li>
+  <% end %>
+  -----------
+  Total: <%= @cart.total_price %>
+</ul>
+
+
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

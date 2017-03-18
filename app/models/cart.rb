@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :line_items, dependent: destroy
+  has_many :line_items, dependent: :destroy
   belongs_to :place
   belongs_to :user
 
@@ -11,5 +11,10 @@ class Cart < ApplicationRecord
       current_item = line_items.build(dish_id: dish_id)
     end
     current_item
+
+  end
+
+  def total_price
+    line_items.to_a.sum { |item| item.total_price }
   end
 end

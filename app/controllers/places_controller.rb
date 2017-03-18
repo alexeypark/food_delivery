@@ -1,15 +1,15 @@
 class PlacesController < ApplicationController
 
   def index
-    @place = Place.all
+    @places = Place.all
   end
 
   def show
-    @cart = Cart.find(params[:user_id, :place_id])
-    unless @cart
-      @cart = Cart.new(cart_params)
-    end
     @place = Place.find(params[:id])
+    @cart = Cart.where(user: current_user, place: @place).first
+    unless @cart
+      @cart = Cart.create(user_id: current_user.id, place_id: @place.id )
+    end
   end
 
   private

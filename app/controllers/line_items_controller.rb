@@ -2,12 +2,13 @@ class LineItemsController < ApplicationController
 
   def create
     dish = Dish.find(params[:dish_id])
-    @cart = Cart.find(params[:place_id, :user_id])
+    place = dish.place
+    @cart = Cart.where(user: current_user, place: place).first
     @line_item = @cart.add_dish(dish.id)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to dishes_path }
+        format.html { redirect_to :back }
         format.js {}
       else
         format.html { render :new }
@@ -23,4 +24,5 @@ class LineItemsController < ApplicationController
       format.js {}
     end
   end
+
 end
