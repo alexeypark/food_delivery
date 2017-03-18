@@ -7,12 +7,9 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_dish(dish.id)
 
     respond_to do |format|
-      if @line_item.save
+        @line_item.save
         format.html { redirect_to :back }
         format.js {}
-      else
-        format.html { render :new }
-      end
     end
   end
 
