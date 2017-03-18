@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @place.name %>
@@ -39,15 +37,8 @@
   </tbody>
 </table>
 
-<h2>Your Pragmatic Cart</h2>
-<ul>
-  <% @cart.line_items.each do |item| %>
-      <li><%= item.quantity %> &times; <%= item.dish.name %> -- <%= item.total_price %></li>
-  <% end %>
-  -----------
-  Total: <%= @cart.total_price %>
-</ul>
-
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<div id="side">
+  <div id="cart">
+    <%= render @cart %>
+  </div>
+</div>

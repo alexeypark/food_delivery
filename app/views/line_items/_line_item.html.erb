@@ -1,0 +1,7 @@
+<tr data-id="<%= line_item.id %>">
+  <td><%= link_to 'x', line_item, method: 'delete', remote: true %></td>
+  <td><%= line_item.quantity %>&times;</td>
+  <td><%= line_item.dish.name %></td>
+  <td> from <%= line_item.dish.place.name %></td>
+  <td class="item_price"><%= line_item.total_price %></td>
+</tr>
