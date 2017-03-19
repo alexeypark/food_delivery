@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     dish = Dish.find(params[:dish_id])

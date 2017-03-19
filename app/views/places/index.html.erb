@@ -1,26 +1,17 @@
-
-<h1>Places</h1>
-
-<table>
-  <thead>
-    <tr>
-      <td>pic</td>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @places.each do |place| %>
-      <tr>
-        <td><%= image_tag place.image.url(:thumb) %></td>
-        <td><%= place.name %></td>
-        <td><%= place.description %></td>
-        <td><%= place.image %></td>
-        <td><%= link_to 'Show', place %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <% @places.each do |place| %>
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+      <%= image_tag place.image.url(:medium), class: "img-circle" %>
+    <div class="caption">
+        <h3 class="place-name">
+          <%= link_to place.name, place %>
+        </h3>
+        <p class="place-desc">
+          <%= place.description %>
+        </p>
+    </div>
+   </div>
+  </div>
+  <% end %>
+  </div>

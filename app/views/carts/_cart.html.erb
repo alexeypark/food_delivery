@@ -1,5 +1,5 @@
 <h2>Your Cart</h2>
-<table cart-id="<%= cart.id %>">
+<table>
    <%= render(cart.line_items) %>
 
    <tr class="total_line">
@@ -7,6 +7,9 @@
      <td class="total_cell"><%= cart.total_price %></td>
    </tr>
 </table>
-
-<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= button_to 'Order', orders_path(place_id: place) %>
+<% unless cart.line_items.first == nil %>
+  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Order', orders_path(place_id: place) %>
+<% else %>
+  Your cart is empty
+<% end %>
