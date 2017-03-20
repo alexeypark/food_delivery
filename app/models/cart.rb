@@ -11,7 +11,6 @@ class Cart < ApplicationRecord
       current_item = line_items.build(dish_id: dish_id)
     end
     current_item
-
   end
 
   def total_price
