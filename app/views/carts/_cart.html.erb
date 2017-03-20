@@ -8,8 +8,8 @@
    </tr>
 </table>
 <% unless cart.line_items.first == nil %>
-  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= button_to 'Order', orders_path(place_id: place) %>
+  <%= button_to 'Order', orders_path(place_id: place),class:"btn btn-primary" %> <br>
+  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
 <% else %>
   Your cart is empty
 <% end %>

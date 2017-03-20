@@ -71,7 +71,6 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
-    cancancan (1.16.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -247,7 +246,6 @@ DEPENDENCIES
   activeadmin!
   bootstrap-sass
   byebug
-  cancancan
   coffee-rails (~> 4.2)
   devise
   faker

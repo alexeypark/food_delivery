@@ -1,6 +1,7 @@
 class Place < ApplicationRecord
-  has_many :dishes
-  has_many :carts
+  has_many :dishes, dependent: :destroy
+  has_many :carts, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :name, presence: true
 

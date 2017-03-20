@@ -7,7 +7,6 @@ end
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-gem 'cancancan'
 gem 'simple_form'
 gem 'paperclip'
 gem 'faker'
