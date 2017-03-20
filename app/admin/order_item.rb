@@ -1,5 +1,6 @@
-ActiveAdmin.register Dish do
-  permit_params :name, :place_id, :price, :description
+ActiveAdmin.register OrderItem do
+
+  permit_params :order_id, :name, :price, :quantity
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

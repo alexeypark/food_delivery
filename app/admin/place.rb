@@ -1,5 +1,16 @@
 ActiveAdmin.register Place do
 
+  permit_params :name, :description, :image
+
+  index do
+    column :name
+    column :description
+    column :image do |ad|
+      image_tag ad.image.url(:thumb)
+    end
+    actions
+  end
+
   form do |f|
     f.inputs do
       f.input :name # shows errors on :base
