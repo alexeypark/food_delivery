@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
                       place: place).first
     @order = Order.create(user: current_user,
                           place: place)
+
     cart.line_items.each do |item|
       OrderItem.create(name: item.dish.name,
                        price: item.dish.price,
@@ -14,7 +15,12 @@ class OrdersController < ApplicationController
                        order: @order)
     end
     cart.destroy
-    redirect_to orders_path
+
+    if @order.save
+      redirect_to orders_path, notice: 'Order has been made!'
+    else
+      redirect_to :back, notice: 'Something went wrong!'
+    end
   end
 
   def index

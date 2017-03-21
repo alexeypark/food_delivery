@@ -7,11 +7,11 @@ class LineItemsController < ApplicationController
     @cart = Cart.where(user: current_user, place: place).first
     @line_item = @cart.add_dish(dish.id)
 
-    respond_to do |format|
-        @line_item.save
-        format.html { redirect_to :back }
-        format.js {}
-    end
+      if @line_item.save
+        redirect_to :back, notice: "Dish has been added!"
+      else
+        redirect_to :back, notice:  "Something went wrong!"
+      end
   end
 
   def destroy
