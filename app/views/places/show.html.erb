@@ -22,7 +22,7 @@
           <p class="place-desc">
             <%= dish.description %>
           </p>
-          <%= button_to 'Add to Cart', line_items_path(dish_id: dish), class:'btn btn-primary' %>
+          <%= button_to 'Add to Cart', line_items_path(dish_id: dish), class:'btn btn-primary', id: "dish_#{dish.name}" %>
         </div>
       </div>
 

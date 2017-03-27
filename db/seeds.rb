@@ -8,7 +8,8 @@
 admin = User.create!(email: 'admin@example.com', password: 'password', role: 'admin', name: 'Admin', address: 'Lorem Ipsum', phone: '1234567')
 user = User.create!(email: 'user@example.com', password: 'password', role: 'none', name: 'User', address: 'Lorem Ipsum', phone: '1234567')
 restaurant = Place.create(name: 'Restaurant', description: 'Lorem Ipsum')
-dish = Dish.create(name: 'Dish', description: 'Lorem Ipsum', price: 100, place_id: restaurant)
+dish = Dish.create!(name: 'Dish', description: 'Lorem Ipsum', price: 100, place: restaurant)
+dish2 = Dish.create!(name: 'Dish2', description: 'Lorem Ipsum', price: 200, place: restaurant)
 Place.create([{name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
               {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
               {name: Faker::Food.spice, description: Faker::Lorem.paragraph(2, false, 4), image: File.open(Dir.glob(File.join(Rails.root,'app', 'assets', 'images', 'sampleimages', '*')).sample)},
