@@ -22,3 +22,22 @@ end
 When(/^пользователь выйдет и он не увидит свой email "([^"]*)" в меню$/) do |email|
   page.assert_no_text("#{email}")
 end
+
+When(/^пользователь редактирует профиль данными:$/) do |table|
+  visit('/users/edit')
+  within("#edit_user") do
+    fill_in('Name', with: table.hashes[0][:name])
+    fill_in('Address', with: table.hashes[0][:address])
+    fill_in('Phone', with: table.hashes[0][:phone])
+    fill_in('Email', with: table.hashes[0][:email])
+    fill_in('user_password', with: table.hashes[0][:password])
+    fill_in('user_password_confirmation', with: table.hashes[0][:password])
+    fill_in('user_current_password', with: table.hashes[0][:current_password])
+    click_button 'Update'
+  end
+end
+
+When(/^отредактированный email "([^"]*)" видно в меню$/) do |email|
+  page.assert_text("#{email}")
+end
+

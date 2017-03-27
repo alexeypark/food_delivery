@@ -30,6 +30,5 @@ When(/^пользователь оформляет заказ$/) do
 end
 
 When(/^заказ видно в списке заказов$/) do
-  save_and_open_page
   page.has_css?('div#order_1')
 end
